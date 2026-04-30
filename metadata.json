@@ -1,0 +1,8 @@
+{
+  "name": "Urban Style Bags - Manufacturer & Wholesaler",
+  "description": "Premium backpack manufacturer and wholesaler in Delhi specializing in bulk orders for schools, colleges, and corporates.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}
