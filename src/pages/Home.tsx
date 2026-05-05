@@ -115,7 +115,7 @@ const Home = () => {
             style={{ backgroundImage: `url(${heroBg})` }}
           />
           <div className="absolute inset-0 z-0 opacity-20 bg-primary/10" />
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/10 -z-10 skew-x-[-12deg] translate-x-24 backdrop-blur-[2px]" />
+          <div className="hidden lg:block absolute top-0 right-0 w-1/2 h-full bg-slate-50/10 -z-10 skew-x-[-12deg] translate-x-24 backdrop-blur-[2px]" />
           
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -267,7 +267,7 @@ const Home = () => {
       </section>
 
       {/* Logistics & Pan-India Supply */}
-      <section className="py-32 bg-primary text-white relative">
+      <section className="py-32 bg-primary text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/4 h-full bg-accent/5 -skew-x-12 translate-x-1/2"></div>
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
