@@ -30,56 +30,58 @@ export default function FloatingCTA() {
   };
 
   return (
-    <div className="fixed bottom-24 md:bottom-8 right-6 z-40 flex flex-col gap-4">
-      <AnimatePresence>
-        {showScroll && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            onClick={scrollToTop}
-            className="w-12 h-12 bg-white text-primary border border-slate-200 rounded-full flex items-center justify-center shadow-lg hover:bg-slate-50 transition-all"
-            aria-label="Scroll to top"
+    <>
+      <div className="fixed bottom-24 md:bottom-8 right-6 z-40 flex flex-col gap-4">
+        <AnimatePresence>
+          {showScroll && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              onClick={scrollToTop}
+              className="w-12 h-12 bg-white text-primary border border-slate-200 rounded-full flex items-center justify-center shadow-lg hover:bg-slate-50 transition-all"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp className="w-5 h-5" />
+            </motion.button>
+          )}
+        </AnimatePresence>
+
+        <div className="flex flex-col gap-3">
+          {/* WhatsApp Button */}
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace(/\+/g, '')}?text=${encodeURIComponent("Hi, I am interested in bulk manufacturing of backpacks and bags. Please share your catalog and wholesale prices.")}`}
+            target="_blank"
+            rel="noreferrer"
+            className="w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-xl shadow-green-500/30 hover:bg-green-600 transition-colors group relative"
+            aria-label="WhatsApp Inquiry"
           >
-            <ArrowUp className="w-5 h-5" />
-          </motion.button>
-        )}
-      </AnimatePresence>
+            <WhatsAppIcon className="w-7 h-7" />
+            <span className="absolute right-16 bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-100 pointer-events-none whitespace-nowrap">
+              WhatsApp for Quote
+            </span>
+          </motion.a>
 
-      <div className="flex flex-col gap-3">
-        {/* WhatsApp Button */}
-        <motion.a
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace(/\+/g, '')}?text=${encodeURIComponent("Hi, I am interested in bulk manufacturing of backpacks and bags. Please share your catalog and wholesale prices.")}`}
-          target="_blank"
-          rel="noreferrer"
-          className="w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-xl shadow-green-500/30 hover:bg-green-600 transition-colors group relative"
-          aria-label="WhatsApp Inquiry"
-        >
-          <WhatsAppIcon className="w-7 h-7" />
-          <span className="absolute right-16 bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-100 pointer-events-none whitespace-nowrap">
-            WhatsApp for Quote
-          </span>
-        </motion.a>
-
-        {/* Call Button */}
-        <motion.a
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          href={`tel:${BUSINESS_INFO.phone}`}
-          className="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center shadow-xl shadow-accent/30 hover:bg-opacity-90 transition-colors group relative"
-          aria-label="Call for Bulk Orders"
-        >
-          <Phone className="w-6 h-6" />
-          <span className="absolute right-16 bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-100 pointer-events-none whitespace-nowrap">
-            Call for Bulk Quote
-          </span>
-        </motion.a>
+          {/* Call Button */}
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            href={`tel:${BUSINESS_INFO.phone}`}
+            className="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center shadow-xl shadow-accent/30 hover:bg-opacity-90 transition-colors group relative"
+            aria-label="Call for Bulk Orders"
+          >
+            <Phone className="w-6 h-6" />
+            <span className="absolute right-16 bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity border border-slate-100 pointer-events-none whitespace-nowrap">
+              Call for Bulk Quote
+            </span>
+          </motion.a>
+        </div>
       </div>
 
       {/* Mobile Sticky Bar - Only visible on small screens */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2 px-4 grid grid-cols-2 gap-3 z-50">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-2 px-4 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] grid grid-cols-2 gap-3 z-50">
         <a 
           href={`tel:${BUSINESS_INFO.phone}`}
           className="bg-primary text-white py-2.5 rounded-lg flex items-center justify-center gap-2 font-bold text-sm"
@@ -95,7 +97,7 @@ export default function FloatingCTA() {
           <WhatsAppIcon className="w-4 h-4" /> WhatsApp
         </a>
       </div>
-    </div>
+    </>
   );
 }
 
