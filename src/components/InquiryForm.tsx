@@ -42,9 +42,13 @@ export default function InquiryForm({
     
     const whatsappUrl = `https://wa.me/${BUSINESS_INFO.whatsapp.replace(/\+/g, '').replace(/-/g, '')}?text=${message}`;
     window.open(whatsappUrl, '_blank');
-    setSubmitted(true);
-  };
 
+// Google Ads Conversion Tracking
+gtag('event', 'conversion', {
+  'send_to': 'AW-11414950399/P5VWCOL4gsQcEP-jicMq'
+});
+
+setSubmitted(true);
   if (submitted) {
     return (
       <div className="bg-white p-10 rounded-none border-t-8 border-accent shadow-2xl text-center space-y-4">
