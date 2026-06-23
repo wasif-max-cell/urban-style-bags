@@ -3,12 +3,6 @@ import { Send, CheckCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 import { BUSINESS_INFO } from '../constants';
 
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-  }
-}
-
 interface InquiryFormProps {
   title?: string;
   subtitle?: string;
@@ -50,7 +44,7 @@ export default function InquiryForm({
     window.open(whatsappUrl, '_blank');
 
 // Google Ads Conversion Tracking
-window.gtag('event', 'conversion', {
+(window as any).gtag('event', 'conversion', {
   'send_to': 'AW-11414950399/P5VWCOL4gsQcEP-jicMq'
 });
 
