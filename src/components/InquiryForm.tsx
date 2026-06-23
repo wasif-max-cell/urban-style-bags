@@ -49,6 +49,8 @@ export default function InquiryForm({
 });
 
 setSubmitted(true);
+    };
+  
   if (submitted) {
     return (
       <div className="bg-white p-10 rounded-none border-t-8 border-accent shadow-2xl text-center space-y-4">
